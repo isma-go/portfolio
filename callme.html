@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ismael Godinez | CallMe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Sora:wght@100..800&display=swap" rel="stylesheet">
+
+    <link href="styles/overall.css" rel="stylesheet">
+    <link href="styles/variables.css" rel="stylesheet"> 
+    <link href="styles/color.css" rel="stylesheet">
+    <link href="styles/style.css" rel="stylesheet">
+    <link href="styles/media-queries.css" rel="stylesheet"> 
+
+    <link rel="icon" href="assets/favicon--ig.svg" type="image/svg+xml">
+    <script>
+        (function() {
+          const savedTheme = localStorage.getItem('theme');
+          if (savedTheme) {
+            document.body.classList.add(savedTheme);
+          }
+        })();
+      </script>
+    
+</head>
+
+<body class="theme--default">
+    <!-- navigation -->
+    <header>
+        <div class="navbar">
+            <a href="index.html">
+                <div class="logo">
+                    <p class="logo--font">
+                        <span>i</span>
+                        <!-- <span>s</span>
+                        <span>m</span>
+                        <span>a</span>
+                        <span>e</span>
+                        <span>l</span>
+                        <span> </span> -->
+                        <span>g</span>
+                        <!-- <span>o</span>
+                        <span>d</span>
+                        <span>i</span>
+                        <span>n</span>
+                        <span>e</span>
+                        <span>z</span> -->
+                    </p>
+                </div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a class="nav__link" href="index.html">About</a></li>
+                    <li><a class="nav__link" href="projects.html">Projects</a></li>
+                    <!-- <li><a href="">Playgorund</a></li> -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+
+    <!-- side -->
+    <nav class="side-nav-proj">
+        <ul>
+            <li><a class="nav__link" href="#overview">Overview</a></li>
+            <li><a class="nav__link" href="#goal">Goal</a></li>
+            <li><a class="nav__link" href="#role">Roles</a></li>
+            <li><a class="nav__link" href="#process">Process</a></li>
+            <li><a class="nav__link" href="#takeaway">Key takeaways</a></li>
+            
+        </ul>
+    </nav>
+    
+    <button id="theme-toggle" class="icon-theme">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 12.0261C2 17.1723 5.86713 21.413 10.8468 21.9863C11.5816 22.0709 12.2938 21.7576 12.8168 21.2333C13.4703 20.5781 13.4703 19.5159 12.8168 18.8607C12.2938 18.3364 11.8674 17.5541 12.2619 16.9268C13.8385 14.4192 22 20.178 22 12.0261C22 6.48884 17.5228 2 12 2C6.47715 2 2 6.48884 2 12.0261Z"/>
+            <path d="M6.5 10.75C6.91414 10.75 7.24988 11.0859 7.25 11.5C7.25 11.9142 6.91421 12.25 6.5 12.25C6.08579 12.25 5.75 11.9142 5.75 11.5C5.75012 11.0859 6.08586 10.75 6.5 10.75ZM17.5 10.75C17.9141 10.75 18.2499 11.0859 18.25 11.5C18.25 11.9142 17.9142 12.25 17.5 12.25C17.0858 12.25 16.75 11.9142 16.75 11.5C16.7501 11.0859 17.0859 10.75 17.5 10.75ZM9.58496 6.25C9.99917 6.25 10.335 6.58579 10.335 7C10.335 7.41421 9.99917 7.75 9.58496 7.75C9.17077 7.74998 8.83496 7.4142 8.83496 7C8.83496 6.5858 9.17077 6.25002 9.58496 6.25ZM14.5 6.25C14.9141 6.25 15.2499 6.58589 15.25 7C15.25 7.41421 14.9142 7.75 14.5 7.75C14.0858 7.75 13.75 7.41421 13.75 7C13.7501 6.58589 14.0859 6.25 14.5 6.25Z"/>
+        </svg>                               
+    </button>
+    <main>
+        <!-- opening animation -->
+
+        <section id="overview" class="section overview">
+            <div class="content--tp a">
+                <h2>Overview</h2>
+                <div class="container-data">
+                    <div class="item-data">
+                        <h4>With</h4>
+                        <p>Finsa SPA</p>
+                    </div>
+                    <div class="item-data">
+                        <h4>Year</h4>
+                        <p>2023 - 2025</p>
+                    </div>
+                    <div class="item-data">
+                        <h4>Sector</h4>
+                        <p>Building technolgy</p>
+                    </div>
+                    <!-- <div class="item-data">
+                        <h4>Client</h4>
+                        <p>Hospedale Gemelli</p>
+                    </div> -->
+                    <div class="item-data">
+                        <h4>Location</h4>
+                        <p>Milan, Italy</p>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="title-proj b">
+                <h1 tabindex="1">Reimagining the intercom experience for Urmet technolgy.</h1>
+            </div>
+        </section>
+
+        <section class="hero--interactive hero--fade">
+                <img src="assets/callme--overview.png" alt="" class="scroll-image">
+        </section>
+    
+        <section id="goal" class="section role">
+            <div class="content--tp">
+                <div class="description">
+                    <h2>Goal</h2>
+                    <div>
+                        Urmet, an Italian building technology company, has been undergoing a digital transformation to modernize its products and services. Finsa has been a long-term partner in this journey, most recently rethinking a new intercom & access control experience for residential and commercial buildings.
+                        <br><br>
+                        CallMe has been an ongoing project since 2022, aimed at defining a new design language for Urmet's intercom systems. The initial focus was on redesigning the mobile app, which then paved the way for a completely new digital ecosystem later adopted across multiple products and devices.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="role" class="section role">
+            <div class="content--tp">
+                <div class="description">                
+                    <h2>Role & Contributions</h2>
+                    <div>
+                        When I joined Finsa, my very first task was designing the app icon for the app stores. Soon after, my role quickly evolved into that of an active contributor to the progressive adaptation of the user experience across multiple devices and new app releases. Most recently, I led the design of an intercom device that adopted the CallMe design system, extending it to include safety and building management functionalities.
+                        <br><br>
+                        In short, my role has been to:
+                        <br><br>
+                        <ul>
+                            <li>Maintain and update the UI system to ensure consistency across platforms and devices.</li>
+                            <li>Design new UX flows and interactions for additional app functionalities.</li>
+                            <li>Define the information architecture of new products.</li>
+                            <li>Test and validate new features through user feedback and iteration.</li>
+                            <li>Collaborate closely with developers to ensure seamless implementation of designs.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section id="process" class="section process">
+            <div class="content--tp">
+                <div class="container-process">
+                    <h2>Process & Key insights</h2>
+                    <div class="description">
+                        <h3>Adaptability by Design</h3>
+                        <div>
+                            One of the biggest challenges was scaling and adapting the app experience across different screen formats and dedicated intercom monitors. This required extensive modifications and refinements to the existing design system. As a result, we have beeen developing a flexible design system, ensuring a consistent user experience across all platforms.
+                        </div>
+                        <ul>
+                            <li>Built a modular design system for easy scalability across various screen sizes and devices.</li>
+                            <li>Tested different user interaction patterns to optimize usability across touch and physical interfaces.</li>
+                            <li>Explored development constraints to ensure the best balance between design feasibility and performance.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="slider"><div class="cta--slider">
+                    <div class="indicators"></div>
+                    <div class="slide-controls">
+                        <button class="icon left">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17 2L7.70711 11.2929C7.31658 11.6834 7.31658 12.3166 7.70711 12.7071L17 22" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button class="icon right">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 22L16.2929 12.7071C16.6834 12.3166 16.6834 11.6834 16.2929 11.2929L7 2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                    </div>
+                    <div class="slider-track">
+                        <div class="slide">
+                            <img src="assets/callme--1.png" alt="CallMe app mockups" />
+                            <p><strong>CallMe App</strong> – The first product to adopt the new design system and user experience.</p>
+                        </div>
+                        <div class="slide">
+                            <img src="assets/callme--2.png" alt="a man using the app remotely" />
+                            <p><strong>Remote access control</strong> - Monitor security cameras and manage call history of multiple locations, from anywhere.</p>
+                        </div>
+                        <div class="slide">
+                            <img src="assets/callme--3.png" alt="Some examples of the intercom products" />
+                            <p><strong>CallMe internal device</strong> - A dedicated communication device for access control, safety alerts, and home automation.</p>
+                        </div>
+                        <div class="slide">
+                            <div class="video-box">
+                                <video autoplay muted loop playsinline>
+                                    <source src="assets/callme--4.mp4" type="video/mp4"/>
+                                  </video>
+                            </div>
+                            <p><strong>App second release</strong> - Creation of visitor passes, face recognition and a new messaging system</p>
+                        </div>
+                        
+                    </div>
+                    
+                </div> 
+            </div>
+        </section>
+
+        <!-- footer -->
+        <section id="takeaway" class="section takeaway">
+            <div class="container-takeaway">
+                <div class="content--tp">
+                    <div class="description">
+                        <h2>Key Takeaways</h2>
+                        <div>
+                            The new design system has been successfully deployed in a wide variety of products, across countries including Europe, China, East Asia, and Latin America. By refining the UX and UI for multiple devices, we helped create a service that is intuitive, scalable, and adaptable to different user habits and technological infrastructures.
+                        </div>
+                        <ul>
+                            <li><strong>Scalability is key</strong> – Designing across multiple devices requires a flexible, modular UI system that can adapt to different screen sizes and hardware capabilities.</li>
+                            <li><strong>Technology & everyday habits</strong> – One of the most interesting aspects of this project was designing in a space where technology directly influences daily routines, requiring a balance between efficiency, security, and usability.</li>
+                            <li><strong>Iterating beyond MVP</strong> – Continuative UX improvements enhance long-term usability and adoption, ensuring relevance in an evolving digital landscape.</li>
+                        </ul>
+                    </div>
+                    <div class="footer-cta">
+                        <div class="cta">
+                            <button class="principal icon-left" onclick="window.location.href='projects.html'">
+                                <span class="icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4 7H15C17.7614 7 20 9.23857 20 12C20 14.7614 17.7614 17 15 17H8.00001M4 7L7 4M4 7L7 10"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    </span>
+                                <span class="label">Project index</span>
+                            </button>
+                            <button class="principal icon-right" onclick="window.location.href='accessibility.html'">
+                                <span class="label">Next project</span>
+                                <span class="icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 22L21.2929 12.7071C21.6834 12.3166 21.6834 11.6834 21.2929 11.2929L12 2M21.5 12H1.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="connect--cta">
+                            <a href="index.html#contact">Get in touch.</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright">
+                    © ismael godinez 2025
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="custom-cursor"></div>
+    <script src="scripts/script.js"></script>
+</body>
+</html>
