@@ -1,0 +1,389 @@
+html, body {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+
+
+  margin: 0;
+  padding: 0;
+  
+  font-family: var(--font--family);
+  font-family: var(--font--family-2);
+  line-height: 130%;
+  font-size: var(--font--size-regular);
+  font-weight: 300;
+  cursor: none;
+}
+  
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+h1, h2, h3, h4, p, figure {
+  margin: 0;
+
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: none;
+}
+  
+img {
+  display: block;
+  user-select: none;
+}
+
+* {
+  -webkit-tap-highlight-color: rgb(0 0 0 / 0);
+}
+
+.link-text {
+  color: var(--foreground-2);
+  font-weight: 500;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.link-text:hover {
+  color: var(--foreground-1);
+}
+
+h1 {
+  font-family: var(--font--family);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: var(--font--size-huge);  
+  line-height: 110%; 
+}
+
+h2 {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-size: var(--font--size-large); 
+  line-height: 110%;  
+}
+
+h3 {
+  font-family: var(--font--family);
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: var(--font--size-medium); 
+  line-height: 110%;  
+}
+
+h4 {
+  font-family: var(--font--family-2);
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: var(--font--size-regular);   
+}
+
+.logo--font {
+  font-family: var(--font--family);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  background-color: var(--surface-2);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease-out, width 0.2s, height 0.2s;
+  z-index: 9999;
+}
+
+.custom-cursor.hovered {
+  transform: translate(-50%, -50%) scale(2);
+  background: var(--surface-1);
+  /* backdrop-filter: invert(100%); */
+}
+
+button {
+  display: inline-flex;
+  height: fit-content;
+  padding: 16px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  border-radius: 12px;
+  cursor: none;
+  
+}
+
+strong {
+  font-weight: 700;
+}
+
+ol, ul {
+  margin: 0;
+  padding: 0 0 0 24px;
+}
+
+ol li {
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+ul li {
+  list-style: circle;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.principal {
+  background: var(--surface-1, #eee);
+  border: none;
+}
+
+.principal:hover {
+  background: var(--surface-2, #e4e4e4);
+}
+
+.principal .label {
+  color: var(--foreground-1);
+  font-family: var(--font--family-2);
+  font-size: var(--font--size-regular);
+  line-height: normal;
+  font-weight: 300;
+}
+
+/* slider */
+
+.slider {
+  position: relative;
+  width: 100%;
+  align-self: stretch;
+  /* max-width: 600px; */
+  overflow: hidden;
+  /* border-radius: 32px; */
+  height: 80vh;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.4s ease;
+  align-self: stretch;
+  height: calc(100% - 80px);
+}
+
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+
+.slide img {
+  max-width: 100%;
+  height: 70%;
+  object-fit: cover;
+  border-radius: 24px;
+  margin-bottom: 16px;
+}
+
+.video-box {
+  width: 100%;
+  height: 70%;
+  overflow: hidden;
+  min-width: 25vw;
+  margin-bottom: 16px;
+}
+
+.video-box video {
+width: 100%;
+height: 100%;
+border-radius: 24px;
+
+object-fit: cover;
+overflow: hidden;
+}
+
+.slide p {
+  min-width: 100%;
+  height: fit-content;
+  
+}
+
+.cta--slider {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding: 0 16px;
+}
+
+.slide-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 32px; 
+
+}
+
+button.icon {
+  background: var(--bg);
+  color: var(--foreground-1);
+  border: none;
+  border-radius: 50px;
+  padding: 20px;
+  
+  cursor: pointer;
+  z-index: 1;
+}
+
+button.icon-theme {
+  background: var(--surface-nav);
+  color: var(--foreground-1);
+  border: none;
+  border-radius: 50px;
+  padding: 20px;
+  cursor: pointer;
+  z-index: 1;
+  backdrop-filter: blur(8px)
+}
+
+button.icon-theme path {
+  stroke: var(--foreground-1);
+  stroke-width: 1.5px;
+}
+
+button.icon-theme:hover {
+  background: var(--surface-2);
+}
+
+button.icon:hover,
+button.next:hover {
+  background: var(--surface-2);
+}
+
+.indicators {
+  display: flex;
+  align-items: center;
+}
+
+.indicators button {
+  background: var(--surface-1);
+  border: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 0 4px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+  padding: 0;
+}
+
+.indicators button.active {
+  opacity: 1;
+  background: var(--surface-2);
+}
+
+.icon path {
+  stroke: var(--foreground-1);
+  stroke-width: 1.5px;
+}
+
+button#theme-toggle {
+  position: fixed;
+  bottom: 100px;
+  left: 80px;
+  z-index: 10;
+}
+
+/* --- hero image --- */
+
+.hero--interactive {
+  width: 100%;
+  margin-top: 15vh;
+  overflow: hidden;
+  perspective: 1000px;
+  opacity: 1;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.8s ease;
+}
+
+.hero--interactive img {
+  width: 100%;
+  padding: 0 24px;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.hero--fade img {
+  transition: transform 0.2s ease-out;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+.hero--interactive img.bosch {
+  padding: 180px;
+}
+
+/* --- radio status --- */
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-weight: 400;
+  color: var(--foreground-1);
+}
+
+.signal {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.circle {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 3px solid var(--surface-2);
+  top: 0;
+  left: 0;
+}
+
+.pulse {
+  animation: pulse 1.6s ease-out infinite;
+}
+
+.static {
+  background-color: var(--surface-2);
+  width: 12px;
+  height: 12px;
+  top: 6px;
+  left: 6px;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}

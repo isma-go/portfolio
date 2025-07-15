@@ -1,0 +1,40 @@
+body {
+    background: var(--bg);
+    color: var(--foreground-1);
+}
+
+:root {
+    --bg: #fff;
+    --foreground-1: #121212;
+    --foreground-2: #757575;
+    --surface-1: #eee;
+    --surface-2: #e4e4e4;
+    --surface-nav: rgba(255, 255, 255, 0.20);
+}
+
+body.theme--default {
+    --bg: #fff;
+    --foreground-1: #121212;
+    --foreground-2: #757575;
+    --surface-1: #eee;
+    --surface-2: #e4e4e4;
+    --surface-nav: rgba(255, 255, 255, 0.20);
+}
+
+body.theme--01 {
+    --bg: #152A21;
+    --foreground-1: #F3FAEC;
+    --foreground-2: #A2B38F;
+    --surface-1: #1E3E31;
+    --surface-2: #476c5d;
+    --surface-nav: rgba(21, 42, 33, 0.20);
+}
+
+body.theme--02 {
+    --bg: #FAFAFF;
+    --foreground-1: #2D3BFF;
+    --foreground-2: #5761EA;
+    --surface-1: #F0F0FF;
+    --surface-2: #E3E8FF;
+    --surface-nav: rgba(250, 250, 255, 0.2);
+}
