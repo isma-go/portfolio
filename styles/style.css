@@ -713,8 +713,13 @@ div.description {
 
 
 /* logo strip */
+.section.logos {
+    height: fit-content;
+}
 
 .logo-strip {
+    grid-column: 3 / -1;
+    display: flex;
     margin: 120px 0 120px 0;
     position: absolute;
     overflow: hidden;
@@ -732,12 +737,22 @@ div.description {
     animation: scroll-left 20s linear infinite;
 }
 
+.logos-item {
+    width: fit-content;
+    height: auto;
+}
+
+.logos-item svg path {
+    fill: var(--foreground-2);
+}
+
 .logo-track img {
     height: 40px;
     flex-shrink: 0;
     opacity: 0.8;
     transition: opacity 0.3s ease;
 }
+
 .logo-track img:hover {
     opacity: 1;
 }
@@ -751,4 +766,3 @@ div.description {
     }
 }
 
-/* ---------------------------------------------- */
