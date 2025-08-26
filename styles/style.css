@@ -711,3 +711,44 @@ div.description {
     margin-bottom: 24px;
 }
 
+/* --- Overlay base --- */
+.splash {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--surface-2);
+    transition: 1s;
+}
+
+.logo-splash {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    font-family: var(--font--family);
+    font-weight: 500;
+    color: var(--bg1);
+}
+
+.logo-s {
+    position: relative;
+    display: inline-block;
+    bottom: -20px;
+    opacity: 0;
+}
+
+.logo-s.active {
+    bottom: 0;
+    opacity: 1;
+    transition: ease-in-out 0.5s;
+}
+
+.logo-s.fade {
+    bottom: 80px;
+    opacity: 0; 
+    transition: ease-in-out 0.8s;
+}
