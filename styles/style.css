@@ -358,7 +358,7 @@ div.card--service {
     top: 25vh;
     background-color: var(--bg1);
     padding: 24px 0;
-    border-top: var(--foreground-2) solid 1px;
+    border-top: var(--foreground-2) solid .5px;
 }
 
 div.item--project {
@@ -378,7 +378,7 @@ div.project.number {
     width: 6vw;
     font-family: var(--font--family-2);
     font-weight: 300;
-    font-size: var(--font--size-medium);    
+    font-size: var(--font--size-regular);    
 }
 
 div.project.data {
@@ -387,6 +387,8 @@ div.project.data {
     flex-direction: column;
     gap: 16px;  
 }
+
+
 
 div.tags {
     display: flex;
@@ -405,14 +407,21 @@ div.tags {
     gap: 12px;
 }
 
+.company {
+    font-family: var(--font--family-2);
+    font-weight: 300;
+    font-size: var(--font--size-regular);  
+    color: var(--foreground-2);
+}
+
 .tags ul li {
     list-style: none;
     background-color: var(--surface-1);
     color: var(--foreground-1);
     border-radius: 16px;
-    border: solid var(--foreground-1) .5px;
+    border: solid var(--surface-2) .5px;
     font-size: var(--font--size-small);
-    font-weight: 400;
+    font-weight: 300;
     padding: 6px 12px;
     margin: 0;
 }
