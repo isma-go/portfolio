@@ -63,7 +63,8 @@ window.onscroll = () => {
         if(top >= offset && top < offset + height) {
             navLinks.forEach(links => {
                 links.classList.remove('active');
-                document.querySelector('.nav__link[href*=' + id + ']').classList.add('active');
+                const target = document.querySelector('.nav__link[href*=' + id + ']');
+                if (target) target.classList.add('active');
             });
         };
     });
@@ -95,47 +96,51 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// slider
-const track = document.querySelector('.slider-track');
-const slides = document.querySelectorAll('.slide');
-const prevBtn = document.querySelector('.left');
-const nextBtn = document.querySelector('.right');
-const indicators = document.querySelector('.indicators');
-let currentIndex = 0;
-let startX = 0;
-let isSwiping = false;
+// slider (guarded for pages without slider markup)
+(function initSlider() {
+  const track = document.querySelector('.slider-track');
+  const slides = document.querySelectorAll('.slide');
+  const prevBtn = document.querySelector('.left');
+  const nextBtn = document.querySelector('.right');
+  const indicators = document.querySelector('.indicators');
 
-// Create indicator dots
-slides.forEach((_, index) => {
-const dot = document.createElement('button');
-dot.addEventListener('click', () => {
-    currentIndex = index;
+  if (!track || !indicators || slides.length === 0 || !prevBtn || !nextBtn) {
+    return;
+  }
+
+  let currentIndex = 0;
+
+  // Create indicator dots
+  slides.forEach((_, index) => {
+    const dot = document.createElement('button');
+    dot.addEventListener('click', () => {
+      currentIndex = index;
+      updateSlider();
+    });
+    indicators.appendChild(dot);
+  });
+
+  const updateSlider = () => {
+    const offset = -currentIndex * 100;
+    track.style.transform = `translateX(${offset}%)`;
+    document.querySelectorAll('.indicators button').forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentIndex);
+    });
+  };
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
     updateSlider();
-});
-indicators.appendChild(dot);
-});
+  });
 
-const updateSlider = () => {
-const offset = -currentIndex * 100;
-track.style.transform = `translateX(${offset}%)`;
-document.querySelectorAll('.indicators button').forEach((dot, i) => {
-    dot.classList.toggle('active', i === currentIndex);
-});
-};
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlider();
+  });
 
-prevBtn.addEventListener('click', () => {
-currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-updateSlider();
-});
-
-nextBtn.addEventListener('click', () => {
-currentIndex = (currentIndex + 1) % slides.length;
-updateSlider();
-});
-
-
-// Init
-updateSlider();
+  // Init
+  updateSlider();
+})();
 
 
 // image effect

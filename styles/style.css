@@ -13,6 +13,7 @@
     z-index: 10;
     background: var(--surface-nav);
     backdrop-filter: blur(8px);
+    border-bottom: var(--surface-2) solid .75px;
 }
 
 nav ul {
@@ -38,15 +39,27 @@ nav ul li a {
 }
 
 /* sidenav */
-.side-nav {
+.side-nav-container {
     position: fixed;
-    top: 50%;
-    left: 80px;
+    top: 70px;
+    left: calc(80px - 16px);
+    padding-left: 16px;
+    width: fit-content;
+    height: 100%;
+    border-left: var(--surface-2) solid .75px;
+    pointer-events: auto;
+    z-index: 100;
+}
+.side-nav {
+    position: relative;
+    top: 40%;
     width: auto;
     height: auto;
     transform: translateY(-50%);
     transition: top 0.3s ease-in-out;
     z-index: 100;
+    /* Re-enable pointer events for the actual nav */
+    pointer-events: auto;
 }
 
 .side-nav ul {
@@ -148,6 +161,7 @@ nav ul li a {
     position: relative;
     margin-bottom: 120px;
     padding-top: 70px;
+    height: fit-content;
 }
 
 .section.experience div {

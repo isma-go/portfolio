@@ -245,13 +245,13 @@ button.icon {
 }
 
 button.icon-theme {
+
   background: var(--surface-nav);
   color: var(--foreground-1);
   border: none;
   border-radius: 50px;
   padding: 20px;
   cursor: pointer;
-  z-index: 1;
   backdrop-filter: blur(8px)
 }
 
@@ -298,10 +298,10 @@ button.next:hover {
 }
 
 button#theme-toggle {
-  position: fixed;
-  bottom: 100px;
-  left: 80px;
-  z-index: 10;
+  position: relative;
+  
+  z-index: 200;
+  pointer-events: auto;
 }
 
 /* --- hero image --- */
