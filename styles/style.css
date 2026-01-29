@@ -133,12 +133,31 @@ nav ul li a {
     align-items: flex-start;
     gap: 48px;
 }
+
 .h-alternativo {
     font-family: var(--font--family);
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
     font-size: var(--font--size-hugealt); 
+}
+
+.section.intro.text {
+    font-size: var(--font--size-medium);
+    font-weight: 300;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: "slnt" 0, "wdth" 105;
+    line-height: 110%;
+}
+
+.section.intro div .links-hero {
+    display: flex;
+    flex-direction: row;
+}
+
+.link-hero {
+    color: var(--foreground-2);
 }
 
 /* ---------------------------------------------- */
@@ -388,11 +407,11 @@ div.project.data {
     gap: 16px;  
 }
 
-
-
-div.tags {
+.tags {
     display: flex;
     width: 100%;
+    flex-direction: column;
+    gap: 24px;
 }
 
 .tags ul {

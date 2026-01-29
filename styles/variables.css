@@ -2,7 +2,7 @@
 
 :root {
     --font--family: "Sora", system-ui, sans-serif;
-    --font--family-2: "Inter", system-ui, sans-serif;
+    --font--family-2: "TikTok Sans", system-ui, sans-serif;
     --font--style: normal;
     --font--weight: 500;
     --font--margin-left: -0.07em;
@@ -12,9 +12,9 @@
     --font--size-huge: clamp(36px, 5.14vw, 5.14vw);
     --font--size-hugealt: clamp(32px,2.84vw, 2.84vw);
     --font--size-large: clamp(38px, 1.81vw, 1.81vw);
-    --font--size-medium: 22px;
-    --font--size-regular: 16px;
-    --font--size-small: 14px;
+    --font--size-medium: 24px;
+    --font--size-regular: 18px;
+    --font--size-small: 16px;
     --font--size-regular-line-height: 1.25;
   }
   

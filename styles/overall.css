@@ -12,6 +12,9 @@ html, body {
   font-size: var(--font--size-regular);
   font-weight: 300;
   cursor: none;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "slnt" 0, "wdth" 105;
 }
   
 *, *:before, *:after {
@@ -59,9 +62,9 @@ h1 {
 }
 
 h2 {
-  font-family: "Inter", sans-serif;
+  font-family: var(--font--family-2);
   font-optical-sizing: auto;
-  font-weight: 300;
+  font-weight: 400;
   font-style: normal;
   font-size: var(--font--size-large); 
   line-height: 110%;  
