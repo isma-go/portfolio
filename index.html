@@ -66,7 +66,7 @@
             <nav>
                 <ul>
                     <li><a class="nav__link active-static" href="#">About</a></li>
-                    <li><a class="nav__link" href="projects.html">Projects</a></li>
+                    <li><a class="nav__link" href="projects.html">Work</a></li>
                     <!-- <li><a href="">Playgorund</a></li> -->
                 </ul>
             </nav>
@@ -739,8 +739,8 @@
                             <p>I promote accessible design practices and assess digital products against accessibility standards and real user needs. Beyond compliance, I focus on making products more intuitive, inclusive, and sustainable for teams to maintain.</p>
                         </div>
                         <div class="card--service">
-                            <h3>Art Direction & Storytelling</h3>
-                            <p>I use visual storytelling to make complex ideas easy to understand and remember. Through art direction and video content, I help teams communicate concepts, services, and outcomes in a way that builds trust and strengthens their brand.</p>
+                            <h3>Creative coding & AI prototyping</h3>
+                            <p>I use AI to quickly prototype and test solutions and make it easier for development teams to operate effectively. I also enjoy executing and experimenting with code implementing animations and great visuals.</p>
                         </div>
                     </div>
                 </div>
@@ -896,7 +896,9 @@
                             <span class="status-text">Looking for new challenges</span>
                         </div>
                         <ul>
-                            <li><a href="mailto:ismaelgodinez247@gmail.com">Email me</a></li>
+                            <li><a href="" class="copy-link" data-copy="ismaelgodinez247@gmail.com">ismaelgodinez247@gmail.com
+                                <span class="copy-feedback">Email copied!</span>
+                            </a></li>
                             <li><a href="links/GodinezLopez_CV.pdf" target="_blank" rel="noopener noreferrer">Read my CV</a></li>
                             <li><a href="https://www.linkedin.com/in/ismaelgodinez/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
                         </ul>
@@ -913,5 +915,27 @@
     </main>
     <div class="custom-cursor"></div>
     <script src="scripts/script.js"></script>
+    <script>
+        document.querySelectorAll('.copy-link').forEach(link => {
+          link.addEventListener('click', async (e) => {
+            e.preventDefault();
+      
+            const textToCopy = link.dataset.copy;
+      
+            try {
+              await navigator.clipboard.writeText(textToCopy);
+      
+              link.classList.add('copied');
+      
+              setTimeout(() => {
+                link.classList.remove('copied');
+              }, 1500);
+      
+            } catch (err) {
+              console.error('Copy failed', err);
+            }
+          });
+        });
+      </script>
 </body>
 </html>

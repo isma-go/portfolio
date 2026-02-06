@@ -335,6 +335,32 @@ div.card--service {
     margin: 120px 0 40px 0;
 }
 
+.copy-link:focus {
+    outline: 1px solid var(--foreground-2);
+    border-radius: 4px;
+    outline-offset: 4px;
+  }
+
+.copy-feedback {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 3rem;
+    font-size: 0.75rem;
+    background: var(--surface-1);
+    color: var(--foreground-1);
+    padding: 12px 16px;
+    border-radius: 8px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(4px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .copy-link.copied .copy-feedback {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
 
 /* ---------------------------------------------- */
 /* hero projects */
@@ -349,6 +375,69 @@ div.card--service {
     gap: 48px;
     margin-top: 180px;
 }
+
+
+
+
+/* test project */
+.section.projects-test {
+    position: relative;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    flex: 1 0 0;
+}
+
+.list--projects-test {
+    position: relative;
+    top: 5vh;
+    background-color: var(--bg1);
+    padding: 24px 0;
+    height: fit-content;
+}
+
+.list--projects-test .item--project {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: fit-content;
+    gap: 24px;
+   
+}
+
+.proj.row-1 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 24px;
+    align-items: start;
+}
+
+.proj.row-1.padding {
+    padding-left: 30vw;
+}
+
+.project-img {
+    display: flex;
+    align-items: flex-start;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+
+.project-img img {
+    max-width: 100%;
+    min-height: 500px;
+    object-fit: cover;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+
 
 
 
@@ -462,6 +551,28 @@ div.projects img {
 }
 
 
+.list-cards {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.list-cards--ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 0;
+}
+
+.list-cards--li {
+    list-style: none;
+    line-height: 120%;
+    padding: 12px 16px;
+    border-radius: 16px;
+    background-color: var(--surface-1);
+}
 /* ----- project template ----- */
 
 .side-nav-proj {
@@ -557,7 +668,7 @@ div.content--tp {
 }
 
 .section.role {
-    height: calc(80vh - 70px);
+    height: calc(90vh - 70px);
 }
 
 .section.role > .content--tp {
