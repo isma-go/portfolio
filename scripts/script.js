@@ -5,6 +5,18 @@ let logoSpan = document.querySelectorAll('.logo-s');
 
 window.addEventListener('DOMContentLoaded', () => {
 
+  // Coming from the projects slider: skip logo animation, dismiss quickly
+  if (sessionStorage.getItem('from-projects')) {
+    sessionStorage.removeItem('from-projects');
+    if (splash) {
+      setTimeout(function () {
+        splash.style.transition = 'top 0.4s cubic-bezier(0.76,0,0.24,1)';
+        splash.style.top = '-100vh';
+      }, 80);
+    }
+    return;
+  }
+
   setTimeout(() => {
 
     logoSpan.forEach((span, idx) => {
@@ -29,6 +41,49 @@ window.addEventListener('DOMContentLoaded', () => {
   })
 })
 
+// nav logo animation
+window.addEventListener('DOMContentLoaded', () => {
+  const logoWrapper = document.querySelector('.logo');
+  if (!logoWrapper) return;
+
+  const extraLetters = document.querySelectorAll('.logo--font .extra');
+  if (!extraLetters.length) return;
+
+  // Set inline-block so width is measurable and animatable
+  gsap.set(extraLetters, { display: 'inline-block', overflow: 'hidden' });
+
+  // Measure natural width of each letter, then collapse to 0
+  extraLetters.forEach(span => { span.style.width = 'auto'; });
+  const widths = Array.from(extraLetters).map(span => span.offsetWidth);
+  gsap.set(extraLetters, { width: 0 });
+
+  const expand = () => gsap.to(extraLetters, {
+    width: i => widths[i],
+    duration: 0.4,
+    stagger: 0.03,
+    ease: 'power2.out'
+  });
+
+  const collapse = () => gsap.to(extraLetters, {
+    width: 0,
+    duration: 0.25,
+    stagger: { each: 0.025, from: 'end' },
+    ease: 'power2.in'
+  });
+
+  // Landing: trigger after splash finishes sliding away (~2000ms)
+  setTimeout(() => {
+    const tl = gsap.timeline();
+    tl.add(expand())
+      .to({}, { duration: 1 })
+      .add(collapse());
+  }, 2000);
+
+  // Hover
+  logoWrapper.addEventListener('mouseenter', () => expand());
+  logoWrapper.addEventListener('mouseleave', () => collapse());
+});
+
 // pointer
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -50,22 +105,26 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // scroll
 
-let sections = document.querySelectorAll('section');
+let sections = document.querySelectorAll('section[id], footer[id]');
 let navLinks = document.querySelectorAll('.nav__link');
 
 window.onscroll = () => {
-    sections.forEach(sec => {
-        let top = window.scrollY;
+    let top = window.scrollY;
+    let sectionsArray = Array.from(sections);
+
+    sectionsArray.forEach((sec, index) => {
         let offset = sec.offsetTop - 70;
         let height = sec.offsetHeight;
-        let id = sec.getAttribute ('id');
+        let id = sec.getAttribute('id');
+        let isLast = index === sectionsArray.length - 1;
 
-        if(top >= offset && top < offset + height) {
-            navLinks.forEach(links => {
-                links.classList.remove('active');
-                document.querySelector('.nav__link[href*=' + id + ']').classList.add('active');
-            });
-        };
+        let inSection = isLast ? top >= offset : (top >= offset && top < offset + height);
+
+        if (inSection) {
+            navLinks.forEach(links => links.classList.remove('active'));
+            let activeLink = document.querySelector('.nav__link[href*=' + id + ']');
+            if (activeLink) activeLink.classList.add('active');
+        }
     });
 };
 

@@ -93,6 +93,8 @@ h4 {
   font-weight: 400;
   font-style: normal;
   font-size: 24px;
+  display: flex;
+  align-items: center;
 }
 
 .custom-cursor {
@@ -248,14 +250,14 @@ button.icon {
 }
 
 button.icon-theme {
-  background: var(--surface-nav);
+  background: none;
   color: var(--foreground-1);
   border: none;
   border-radius: 50px;
   padding: 20px;
   cursor: pointer;
-  z-index: 1;
-  backdrop-filter: blur(8px)
+  z-index: 5;
+  /* backdrop-filter: blur(8px); */
 }
 
 button.icon-theme path {
@@ -301,9 +303,7 @@ button.next:hover {
 }
 
 button#theme-toggle {
-  position: fixed;
-  bottom: 100px;
-  left: 80px;
+  position: relative;
   z-index: 10;
 }
 
