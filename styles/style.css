@@ -923,7 +923,7 @@ html:has(#projects-scroll-outer) body { scroll-behavior: auto; }
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-    padding: 56px 80px 72px 80px;
+    padding: 56px 80px 120px 80px;
     opacity: 0;
     pointer-events: none;
     will-change: transform, opacity;
@@ -950,11 +950,11 @@ html:has(#projects-scroll-outer) body { scroll-behavior: auto; }
     top: 0;
     left: 0;
     font-family: var(--font--family);
-    font-size: clamp(80px, 12vw, 180px);
+    font-size: clamp(48px, 8vw, 120px);
     font-weight: 300;
     line-height: 1;
-    color: var(--foreground-1);
-    opacity: 0.06;
+    color: var(--foreground-2);
+    opacity: 0.5;
     pointer-events: none;
     user-select: none;
 }
@@ -989,81 +989,36 @@ html:has(#projects-scroll-outer) body { scroll-behavior: auto; }
     will-change: transform;
 }
 
-.projects-nav {
-    position: absolute;
-    width: 100%;
-    padding: 0 4vw;
-    bottom: 50vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 10;
-}
-
-.proj-btn {
-    background: var(--surface-1);
-    border: none;
-    border-radius: 50%;
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: none;
-    padding: 0;
-    transition: background 0.2s ease;
-    color: var(--foreground-1);
-    flex-shrink: 0;
-}
-
-.proj-btn:hover {
-    background: var(--surface-2);
-}
-
-.proj-btn:disabled {
-    opacity: 0.3;
-}
-
-.proj-counter {
-    font-size: var(--font--size-small);
-    font-family: var(--font--family-2);
-    color: var(--foreground-2);
-    min-width: 56px;
-    text-align: center;
-    font-weight: 300;
-}
-
-#proj-dots {
+#proj-counter {
     position: absolute;
     bottom: 40px;
-    right: 80px;
+    left: 50%;
     transform: translateX(-50%);
-    width: 72px;
-    height: 16px;
-    z-index: 10;
-}
-
-#proj-dots-track {
     display: flex;
     align-items: center;
-    gap: 12px;
-    will-change: transform;
+    gap: 6px;
+    font-family: var(--font--family);
+    font-size: clamp(14px, 1.2vw, 16px);
+    font-weight: 300;
+    color: var(--foreground-2);
+    letter-spacing: 0.1em;
+    z-index: 10;
+    user-select: none;
 }
 
-.proj-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 2px;
-    background: var(--bg1);
-    opacity: 0.80;
-    cursor: none;
-    border: solid .75px var(--foreground-2);
-    padding: 0;
-    flex-shrink: 0;
-    transition: opacity 0.3s ease;
+.proj-num-slot {
+    height: 1.2em;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
 }
 
-.proj-dot.is-active {
-    opacity: 1;
-    background: var(--surface-2);
+.proj-num-current {
+    display: block;
+    will-change: transform, opacity;
+}
+
+.proj-counter-sep {
+    opacity: 0.4;
+    letter-spacing: 0.2em;
 }

@@ -12,17 +12,14 @@
     const numSlides = slides.length;
     if (numSlides === 0) return;
 
-    const elCurrent     = document.querySelector('.proj-counter-current');
-    const elTotal       = document.querySelector('.proj-counter-total');
-    const prevBtn       = document.querySelector('.proj-prev');
-    const nextBtn       = document.querySelector('.proj-next');
-    const dotsContainer = document.getElementById('proj-dots');
+    const elTotal  = document.querySelector('.proj-counter-total');
+    const numEl    = document.querySelector('.proj-num-current');
+
+    var isMobile = window.innerWidth <= 900;
 
     let currentIndex = 0;
     let isAnimating  = false;
     let queuedIndex  = -1;
-
-    const DOT_STEP = 16; // 8px dot + 8px gap
 
     outer.style.height = (numSlides * window.innerHeight) + 'px';
     if (elTotal) elTotal.textContent = pad(numSlides);
@@ -31,20 +28,6 @@
     const splitTitles = slides.map(function (slide) {
         var el = slide.querySelector('.slide-title');
         return el ? new SplitText(el, { type: 'words' }) : null;
-    });
-
-    // ── dot indicators ──────────────────────────────────────────────────
-    const dots = [];
-    var dotsTrack = document.createElement('div');
-    dotsTrack.id = 'proj-dots-track';
-    dotsContainer.appendChild(dotsTrack);
-    slides.forEach(function (_, i) {
-        var dot = document.createElement('button');
-        dot.className = 'proj-dot';
-        dot.setAttribute('aria-label', 'Go to project ' + (i + 1));
-        dot.addEventListener('click', function () { scrollToSlide(i); });
-        dotsTrack.appendChild(dot);
-        dots.push(dot);
     });
 
     // ── initial state (all slides hidden; slide 0 reveals after splash) ─
@@ -80,11 +63,11 @@
         var img0    = s0.querySelector('.slide-img-wrap');
 
         var tl = gsap.timeline();
-        if (img0)  tl.to(img0,       { clipPath: 'inset(0 0% 0 0% round 16px)', duration: 0.9,  ease: 'slideReveal' }, 0);
-        if (num0)  tl.to(num0,        { y: 0, opacity: 0.06, duration: 0.6, ease: 'power2.out' }, 0.1);
-        if (tags0) tl.to(tags0,       { y: 0, opacity: 1,    duration: 0.5, ease: 'power2.out' }, 0.2);
-        if (sp0)   tl.to(sp0.words,   { y: 0, opacity: 1, duration: 0.55, stagger: 0.04, ease: 'power3.out' }, 0.3);
-        if (comp0) tl.to(comp0,       { y: 0, opacity: 1,    duration: 0.4, ease: 'power2.out' }, 0.5);
+        if (img0)  tl.to(img0,      { clipPath: 'inset(0 0% 0 0% round 16px)', duration: 0.9,  ease: 'slideReveal' }, 0);
+        if (num0)  tl.to(num0,      { y: 0, opacity: isMobile ? 1 : 0.06, duration: 0.6, ease: 'power2.out' }, 0.1);
+        if (tags0) tl.to(tags0,     { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' }, 0.2);
+        if (sp0)   tl.to(sp0.words, { y: 0, opacity: 1, duration: 0.55, stagger: 0.04, ease: 'power3.out' }, 0.3);
+        if (comp0) tl.to(comp0,     { y: 0, opacity: 1, duration: 0.4, ease: 'power2.out' }, 0.5);
     }, 1700);
 
     // ── transition ──────────────────────────────────────────────────────
@@ -118,11 +101,11 @@
         // prep in-slide
         inSlide.classList.add('is-active');
         gsap.set(inSlide, { opacity: 1 });
-        if (inImg)     gsap.set(inImg,        { clipPath: clipStart });
-        if (inNum)     gsap.set(inNum,         { y: 20, opacity: 0 });
-        if (inTags)    gsap.set(inTags,        { y: 16, opacity: 0 });
-        if (inCompany) gsap.set(inCompany,     { y: 12, opacity: 0 });
-        if (inSplit)   gsap.set(inSplit.words,  { y: dir > 0 ? 28 : -28, opacity: 0 });
+        if (inImg)     gsap.set(inImg,       { clipPath: clipStart });
+        if (inNum)     gsap.set(inNum,       { y: 20, opacity: 0 });
+        if (inTags)    gsap.set(inTags,      { y: 16, opacity: 0 });
+        if (inCompany) gsap.set(inCompany,   { y: 12, opacity: 0 });
+        if (inSplit)   gsap.set(inSplit.words, { y: dir > 0 ? 28 : -28, opacity: 0 });
 
         var tl = gsap.timeline({
             onComplete: function () {
@@ -147,13 +130,13 @@
         }
 
         // in: text cascade
-        if (inNum)     tl.to(inNum,        { y: 0, opacity: 0.06, duration: 0.5, ease: 'power2.out' }, 0.15);
-        if (inTags)    tl.to(inTags,        { y: 0, opacity: 1,    duration: 0.45, ease: 'power2.out' }, 0.22);
-        if (inSplit)   tl.to(inSplit.words,  { y: 0, opacity: 1, duration: 0.5, stagger: 0.04, ease: 'power3.out' }, 0.3);
-        if (inCompany) tl.to(inCompany,     { y: 0, opacity: 1,    duration: 0.4, ease: 'power2.out' }, 0.45);
+        if (inNum)     tl.to(inNum,        { y: 0, opacity: isMobile ? 1 : 0.6, duration: 0.5, ease: 'power2.out' }, 0.15);
+        if (inTags)    tl.to(inTags,       { y: 0, opacity: 1, duration: 0.45, ease: 'power2.out' }, 0.22);
+        if (inSplit)   tl.to(inSplit.words, { y: 0, opacity: 1, duration: 0.5, stagger: 0.04, ease: 'power3.out' }, 0.3);
+        if (inCompany) tl.to(inCompany,    { y: 0, opacity: 1, duration: 0.4, ease: 'power2.out' }, 0.45);
 
         currentIndex = newIndex;
-        updateUI(currentIndex);
+        updateUI(currentIndex, dir);
     }
 
     // ── scroll to snap point (ScrollToPlugin) ───────────────────────────
@@ -183,10 +166,6 @@
             ease    : 'power1.inOut',
         },
     });
-
-    // ── prev / next buttons ─────────────────────────────────────────────
-    if (prevBtn) prevBtn.addEventListener('click', function () { if (currentIndex > 0) scrollToSlide(currentIndex - 1); });
-    if (nextBtn) nextBtn.addEventListener('click', function () { if (currentIndex < numSlides - 1) scrollToSlide(currentIndex + 1); });
 
     // ── keyboard navigation ─────────────────────────────────────────────
     document.addEventListener('keydown', function (e) {
@@ -226,8 +205,7 @@
             var wrap = slide.querySelector('.slide-img-wrap');
             if (!wrap) { window.location.href = href; return; }
 
-            var rect = wrap.getBoundingClientRect();
-
+            var rect  = wrap.getBoundingClientRect();
             var clone = document.createElement('div');
             clone.style.cssText = [
                 'position:fixed',
@@ -268,11 +246,27 @@
     // ── helpers ─────────────────────────────────────────────────────────
     function pad(n) { return String(n).padStart(2, '0'); }
 
-    function updateUI(index) {
-        if (elCurrent) elCurrent.textContent = pad(index + 1);
-        dots.forEach(function (d, i) { d.classList.toggle('is-active', i === index); });
-        if (prevBtn) prevBtn.disabled = index === 0;
-        if (nextBtn) nextBtn.disabled = index === numSlides - 1;
-        gsap.to(dotsTrack, { x: -index * DOT_STEP, duration: 0.5, ease: 'power2.inOut' });
+    function updateUI(index, dir) {
+        if (dir !== undefined && numEl) {
+            _spinCounter(index, dir);
+        } else {
+            if (numEl) numEl.textContent = pad(index + 1);
+        }
+    }
+
+    function _spinCounter(newIndex, dir) {
+        gsap.to(numEl, {
+            y: dir > 0 ? '-110%' : '110%',
+            opacity: 0,
+            duration: 0.18,
+            ease: 'power2.in',
+            onComplete: function () {
+                numEl.textContent = pad(newIndex + 1);
+                gsap.fromTo(numEl,
+                    { y: dir > 0 ? '110%' : '-110%', opacity: 0 },
+                    { y: '0%', opacity: 1, duration: 0.26, ease: 'power2.out' }
+                );
+            }
+        });
     }
 })();

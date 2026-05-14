@@ -160,7 +160,16 @@ section.intro > .content {
     }
 
     .slide-num {
-        font-size: clamp(56px, 16vw, 90px);
+        position: static;
+        font-size: var(--font--size-regular);
+        font-weight: 400;
+        letter-spacing: 0.12em;
+        color: var(--foreground-2);
+        line-height: 1;
+    }
+
+    .slide-info {
+        gap: 16px;
     }
 
     .slide-title {
@@ -171,24 +180,6 @@ section.intro > .content {
         gap: 14px;
     }
 
-    .projects-nav {
-        right: 24px;
-        bottom: 16px;
-    }
-
-    #proj-dots {
-        bottom: 24px;
-    }
-
-    .proj-btn {
-        cursor: pointer;
-        width: 40px;
-        height: 40px;
-    }
-
-    .proj-dot {
-        cursor: pointer;
-    }
 }
 
 @media all and (max-width: 425px) {
